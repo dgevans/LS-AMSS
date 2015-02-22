@@ -8,6 +8,7 @@ import numpy as np
 from scipy.optimize import root
 from scipy.optimize import fmin_slsqp
 from scipy.interpolate import UnivariateSpline
+from utilities import simulate_markov
 
 class Planners_Allocation_Sequential(object):
     '''
@@ -152,19 +153,6 @@ class Planners_Allocation_Sequential(object):
         return cHist,nHist,Bhist,TauHist,sHist,muHist
             
             
-        
-def simulate_markov(Pi,s_0,T):  
-    '''
-    Simulates markov chain Pi for T periods starting at s_0
-    '''   
-    
-    sHist = np.empty(T,dtype = int)
-    sHist[0] = s_0
-    S = len(Pi)
-    for t in range(1,T):
-        sHist[t] = np.random.choice(np.arange(S),p=Pi[sHist[t-1]])
-        
-    return sHist
     
   
 class Planners_Allocation_Bellman(object):

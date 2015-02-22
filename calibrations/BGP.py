@@ -16,6 +16,8 @@ class baseline(object):
     
     Theta = np.ones(2)
     
+    transfers = False
+    
     #derivatives of utiltiy function
     def U(self,c,n):
         return np.log(c) + self.psi*np.log(1-n)
