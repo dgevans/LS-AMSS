@@ -42,12 +42,13 @@ class Planners_Allocation_Sequential(object):
             [Theta*Uc(c,n)+Un(c,n), Theta*n - c - G]            
             )
         res = root(res,0.5*np.ones(2*S))
+        
         if not res.success:
             raise Exception('Could not find first best')
         
         self.cFB = res.x[:S]
         self.nFB = res.x[S:]
-        self.XiFB = Uc(self.cFB,self.nFB)
+        self.XiFB = Uc(self.cFB,self.nFB) #multiplier on the resource constraint.
         self.zFB = np.hstack([self.cFB,self.nFB,self.XiFB])
         
     def time1_allocation(self,mu):

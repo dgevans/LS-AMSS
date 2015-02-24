@@ -14,6 +14,7 @@ import utilities
 #initialize mugrid for value function iteration
 muvec = np.linspace(-0.7,0.0,200)
 
+M1.transfers = False #Government can't use transfers
 PP_seq = LS.Planners_Allocation_Sequential(M1) #solve sequential problem
 PP_bel = LS.Planners_Allocation_Bellman(M1,muvec) #solve recursive problem
 PP_im = AMSS.Planners_Allocation_Bellman(M1,muvec)
