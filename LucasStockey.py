@@ -158,7 +158,7 @@ class Planners_Allocation_Sequential(object):
   
 class Planners_Allocation_Bellman(object):
     '''
-    Compute the planner's allocation by solving the recursive bellman
+    Compute the planner's allocation by solving Bellman
     equation.
     '''
     def __init__(self,Para,mugrid):
@@ -179,7 +179,7 @@ class Planners_Allocation_Bellman(object):
         
     def solve_time1_bellman(self):
         '''
-        Solve the time bellman equation for calibration Para and initial grid mugrid0
+        Solve the time 1 Bellman equation for calibration Para and initial grid mugrid0
         '''
         Para,mugrid0 = self.Para,self.mugrid
         S = len(Para.Pi)
@@ -261,7 +261,7 @@ class Planners_Allocation_Bellman(object):
         
     def simulate(self,B_,s_0,T,sHist=None):
         '''
-        Simulates planners policies for T periods
+        Simulates Ramsey plan for T periods
         '''
         Para,Pi = self.Para,self.Pi
         Uc = Para.Uc
@@ -294,7 +294,7 @@ class Planners_Allocation_Bellman(object):
     
 class BellmanEquation(object):
     '''
-    Bellman equation for the continuation of the Lucas Stockey Problem
+    Bellman equation for the continuation of the Lucas-Stockey Problem
     '''
     def __init__(self,Para,xgrid,policies0):
         '''

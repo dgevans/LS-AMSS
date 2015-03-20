@@ -13,7 +13,7 @@ from utilities import simulate_markov
 
 class Planners_Allocation_Bellman(object):
     '''
-    Compute the planner's allocation by solving the recursive bellman
+    Compute the planner's allocation by solving Bellman
     equation.
     '''
     def __init__(self,Para,mugrid):
@@ -34,7 +34,7 @@ class Planners_Allocation_Bellman(object):
         
     def solve_time1_bellman(self):
         '''
-        Solve the time bellman equation for calibration Para and initial grid mugrid0
+        Solve the time  1 Bellman equation for calibration Para and initial grid mugrid0
         '''
         Para,mugrid0 = self.Para,self.mugrid
         Pi = Para.Pi
@@ -70,7 +70,7 @@ class Planners_Allocation_Bellman(object):
         xgrid = np.linspace(xbar[0],xbar[1],len(mugrid0))
         self.xgrid = xgrid
                 
-        #Now iterate on bellman equation
+        #Now iterate on Bellman equation
         T = BellmanEquation(Para,xgrid,policies)
         diff = 1.
         while diff > 1e-5:
@@ -160,7 +160,7 @@ class Planners_Allocation_Bellman(object):
         
 class BellmanEquation(object):
     '''
-    Bellman equation for the continuation of the Lucas Stockey Problem
+    Bellman equation for the continuation of the Lucas-Stockey Problem
     '''
     def __init__(self,Para,xgrid,policies0):
         '''
