@@ -53,7 +53,7 @@ class Planners_Allocation_Bellman(object):
             c,n,x,V = zip(*map(lambda mu: incomplete_allocation(mu,s_),mugrid0)) 
             c,n = np.vstack(c).T,np.vstack(n).T
             x,V = np.hstack(x),np.hstack(V)
-            xprimes = np.vstack([x]*2)
+            xprimes = np.vstack([x]*S)
             cf.append(interp(x,c))
             nf.append(interp(x,n))
             Vf.append(interp(x,V))

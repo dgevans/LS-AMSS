@@ -38,3 +38,23 @@ class baseline(object):
 #Model 1
 M1 = baseline()
 
+#Model 2
+
+M2 = baseline()
+M2.G = np.array([0.15])
+M2.Pi = np.ones((1,1))
+M2.Theta = np.ones(1)
+
+#Model 3 with time varying
+
+M_example = baseline()
+
+M_example.Pi = np.array([[0., 1., 0.,   0.,  0.],
+                         [0., 0., 0.5, 0.5,  0.],
+                         [0., 0., 0.,   0.,  1.],
+                         [0., 0., 0.,   0.,  1.],
+                         [0., 0., 0.,   0.,  1.]])
+                         
+M_example.G = np.array([0.1, 0.1, 0.1, 0.2, 0.1])
+M_example.Theta = np.ones(5) # The can in principle be random
+
